@@ -4,10 +4,13 @@ import time
 print("A.Yavuz İLHAN-2021502132")
 print()
 print("!!!Our Excuse,\nWhen you request a letter, the play may not give. This error will be fixed as soon as possible. We apology for this mistake. When this error happens, request a letter until the play gives letter , Do not worry, your score will not be affected.")
+time.sleep(2)
 print()
 print("Welcome to WORD GAME\n    1-Start the Game\n    2-Exit the Game")
+
+    
 words = (["lust", "ball", "soul"], ["faust", "sloth", "greed"], ["lilith", "farabi", "empire"])
-f = [1,2,3]
+f = [0,1,2]
 random = rnd.choice(f)
 random_1 = words[0][random]
 random_2 = words[1][random]
@@ -27,7 +30,7 @@ def word_game(word):
                     deneme += 1
                 if tahmin_edilen.count("*") == 1:
                     print()
-                    print("!!!!Your right to request letters is over, please answer!!!")
+                    print("!!!!Your right to request letter is over, please answer!!!")
                     print()
                     tahmin = (input("Enter your guess: ").lower())
                     if tahmin == word:
@@ -59,7 +62,9 @@ def word_game(word):
             print("Please Enter 1 to answer or 2 to request a letter:")
            
 while True:
+    try:        
         a = int(input())
+        print()
         if a == 1:
             if random_1 == words[0][0]: 
                 print("This word is one of the seven sins in Christianity. According to Abrahamic religions, Sodom and Gomorrah were destroyed by God, and one of the reasons for this is the meaning associated with this word. Nowadays, this word is commonly used in various fields such as movies, theaters, etc.\n\nFirst Word")
@@ -82,12 +87,12 @@ while True:
                 result_2 = word_game(word)
                 print()
             elif random_2 == words[1][1]:
-                print("It is one of the seven deadly sins in Catholic teachings. It is the most difficult sin to define and credit as sin, since it refers to an assortment of ideas, dating from antiquity and including mental, spiritual, pathological, and conditional states.[1] One definition is a habitual disinclination to exertion, or laziness.[2][better source needed] Views concerning the virtue of work to support society and further God's plan suggest that through inactivity, one invites sin: For Satan finds some mischief still for idle hands to do.\n\nSecond Word")
+                print("It is one of the seven deadly sins in Catholic teachings. It is the most difficult sin to define and credit as sin, since it refers to an assortment of ideas, dating from antiquity and including mental, spiritual, pathological, and conditional states. One definition is a habitual disinclination to exertion, or laziness. Views concerning the virtue of work to support society and further God's plan suggest that through inactivity, one invites sin: For Satan finds some mischief still for idle hands to do.\n\nSecond Word")
                 word = words[1][1]
                 result_2 = word_game(word)
                 print()
             elif random_2 == words[1][2]:
-                print("It is one of the seven deadly sins in Catholic teachings.It is an insatiable desire for material gain (be it food, money, land, or animate/inanimate possessions) or social value, such as status, or power. Greed has been identified as undesirable throughout known human history because it creates behavior-conflict between personal and social goals.\n\nSecond Word")
+                print("It is one of the seven deadly sins in Catholic teachings.It is an insatiable desire for material gain (be it food, money, land, or animate/inanimate possessions) or social value, such as status, or power. It has been identified as undesirable throughout known human history because it creates behavior-conflict between personal and social goals.\n\nSecond Word")
                 word = words[1][2]
                 result_2 = word_game(word)
                 print()
@@ -115,5 +120,7 @@ while True:
             print("Game is closing ...")
             break
         else:
-            print("You entered a number other than 1 or 2, Please start again!!!")
+            print("You entered a number other than 1 or 2, Please restart the game!!!")
             break
+    except Exception:
+        print("Please Enter 1 to start the game or Enter 2 to exit the game")   
