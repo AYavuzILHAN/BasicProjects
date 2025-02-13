@@ -13,7 +13,7 @@ class Pencere(QtWidgets.QWidget):
         self.init_ui()
     
     def baglanti(self):
-        baglanti = sqlite3.connect("database.db")
+        baglanti = sqlite3.connect("database1.db")
         
         self.cursor= baglanti.cursor()
         
@@ -56,21 +56,21 @@ class Pencere(QtWidgets.QWidget):
         self.setLayout(v_box)
         self.setLayout(h_box)
         
-        self.temizle.clicked.connect(self.register)
+        self.temizle.clicked.connect(self.clear)
         self.kayıt.clicked.connect(self.register)
         self.göster.clicked.connect(self.click)
         
         
         self.show()
-        
-    def register(self):
-        sender = self.sender() 
     
-        if sender.text() == "Temizle":
+    def clear(self):
+        
             self.ad.clear()
             self.soyad.clear()
             self.sifre.clear()
-        else:
+    
+    def register(self):
+        
             adı = self.ad.text()
             soyadı = self.soyad.text()
             
