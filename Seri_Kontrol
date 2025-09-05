@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seri Numarası Karşılaştırma</title>
+</head>
+<body>
+    <br><br>
+    <div class="mb-3">
+        <label for="seri" class="form-label" style=" border-color: rgb(21, 18, 14);">Seri Numaraları:</label>
+        <input
+            type="text"
+            class="form-control"
+            name="seri"
+            id="seri"
+            aria-describedby="helpId"
+            placeholder="Serileri Virgülle Ayırmayın"
+        />
+        <br><br><br>
+        <label for="k_seri" class="form-label" style=" border-color: rgb(16, 14, 11);">Kontrol Etmek İstediğin Seri Numaraları:</label>
+        <input
+            type="text"
+            class="form-control"
+            name="k_seri"
+            id="k_seri"
+            aria-describedby="helpId"
+            placeholder="Serileri Virgülle Ayırmayın"
+        />
+    </div><br><br>
+    
+     <button id="btn", style=" border-color: antiquewhite; text-align: center; color: black;"> Eksik Olan Serileri Göster </button>
+    
+
+
+    <p id = "sonuc"></p>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function() {
+           
+            //inputlardan değerleri alır
+           
+            const seriInput = document.getElementById("seri").value;
+            const kSeriInput = document.getElementById("k_seri").value;
+
+            // virgüllere göre ayırıp dizilere atar
+           
+            const sericArray = seriInput.split(" ").map(s => s.trim()).filter(s => s !== "");
+            const kcSeriArray = kSeriInput.split(" ").map(s => s.trim()).filter(s => s !== "");
+
+            console.log(sericArray);
+            console.log(kcSeriArray);
+            // eksik olanları belirler
+           
+            const eksikler = sericArray.filter(items => !kcSeriArray.includes(items));
+
+        
+            if(eksikler.length > 0) {
+                document.getElementById("sonuc").innerText = "Eksik olan seriler: " + eksikler.join(", ");
+            } else {
+                document.getElementById("sonuc").innerText = "Kontrol listesinde eksik yok.";
+            }
+        });
+    </script>
+</body>
+
+</html>
